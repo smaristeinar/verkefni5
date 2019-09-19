@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  {% for hlutir in hlutir %}
+  <li>
+    <h1>{{ hlutir[0] }}</h1>
+    <p>{{ hlutir[1] }}</p>
+    <h5>{{ hlutir[2] }}</h5>
+    <img src="{{ hlutir[3] }}" alt="{{ hlutir[0] }}">
+  </li>
+{% endfor %}
+</body>
+</html>
