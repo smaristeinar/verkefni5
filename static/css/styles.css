@@ -1,0 +1,116 @@
+/*
+shadow color: #e1e6ed
+background color:  #f7fafc
+
+font-family: 'Turret Road', cursive; verð
+font-family: 'M PLUS Rounded 1c', sans-serif; titill
+*/
+
+*{
+  margin: 0;
+  padding: 0;
+  background: #f7fafc
+}
+
+.listi_hlutir_box{
+  justify-content: center;
+  padding: 40px;
+  display: flex
+}
+
+.listi_hlutir{
+  display: grid;
+  grid-template-areas: "img"
+  "h1"
+  "p"
+  "h5"
+  "button";
+  justify-content: center;
+  padding: 30px;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.listi_hlutir > h1{
+  grid-area: h1;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.listi_hlutir > p{
+  grid-area: p;
+  font-family: arial;
+}
+
+.listi_hlutir > img{
+  grid-area: img;
+  width: 300px;
+  height: 300px;
+}
+
+.listi_hlutir > h5{
+  margin-top: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border-top: 5px solid #e1e6ed;
+  grid-area: h5;
+  font-family: 'Turret Road', cursive;
+}
+
+.listi_hlutir > button{
+  grid-area: button;
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  border-radius: 20px;
+  margin-top: 10px;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  display: inline-block;
+  width: 33%;
+}
+
+i{background:transparent;}
+
+.listi_hlutir button:hover {
+  background-color: RoyalBlue;
+}
+
+/*RWD*/
+
+@media only screen and (min-width: 900px){
+  .listi_body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+  }
+
+  .listi_hlutir > img{
+    grid-area: img;
+    width: 250px;
+    height: 250px;
+  }
+
+}
+
+
+
+
+
+@media only screen and (min-width: 1500px){
+  .listi_body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  }
+
+  .listi_hlutir > img{
+    grid-area: img;
+    width: 250px;
+    height: 250px;
+  }
+
+}

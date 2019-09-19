@@ -39,25 +39,29 @@ stor_items = {
 "nafn":"Skófla",
 "uplýsingar":"létt og sterk skófla",
 "verð":"1000kr",
-"mynd":"https://images-na.ssl-images-amazon.com/images/I/71ae8LCFdZL._AC_SL1500_.jpg"
+"mynd":"https://www.pngarts.com/files/3/Shovel-Transparent-Image.png",
+"verð-pure":"500"
 },
 "2":{
-"nafn":"d",
-"uplýsingar":"e",
-"verð":"f",
-"mynd":"ss"
+"nafn":"Hrífa",
+"uplýsingar":"Traust hrífa sem svíkur ekki",
+"verð":"500kr",
+"mynd":"http://pluspng.com/img-png/png-of-a-rake-rake-png-475.png",
+"verð-pure":"500"
 },
 "3":{
-"nafn":"g",
-"uplýsingar":"e",
-"verð":"k",
-"mynd":"ss"
+"nafn":"Hjólbara",
+"uplýsingar":"Góð hjólbara sem tekur allt að 100L",
+"verð":"2000kr",
+"mynd":"https://i1.wp.com/freepngimages.com/wp-content/uploads/2015/05/wheelbarrow.png?resize=900%2C900",
+"verð-pure":"2000"
 },
 "4":{
-"nafn":"f",
-"uplýsingar":"j",
-"verð":"l",
-"mynd":"ss"
+"nafn":"Strákústur",
+"uplýsingar":"Strákústur með spítu skafti",
+"verð":"900kr",
+"mynd":"http://pngimg.com/uploads/broom/broom_PNG50.png",
+"verð-pure":"900"
 }
 
 }

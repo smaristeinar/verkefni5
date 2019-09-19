@@ -4,16 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Turret+Road&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5eb76d5b25.js" crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
 <body>
+<div class="listi_body">
   {% for hlutir in hlutir %}
-  <li>
+<div class="listi_hlutir_box">
+  <li class="listi_hlutir">
     <h1>{{ hlutir[0] }}</h1>
     <p>{{ hlutir[1] }}</p>
     <h5>{{ hlutir[2] }}</h5>
     <img src="{{ hlutir[3] }}" alt="{{ hlutir[0] }}">
+    <button type="button" name="button"><i class="fas fa-shopping-cart"></i> Buy</button>
   </li>
+</div>
 {% endfor %}
+</div>
 </body>
 </html>
