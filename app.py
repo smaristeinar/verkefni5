@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request,url_for,session,redirect
 import os
-
+import time
 
 def pack_dicta(listi, dicta):
     list_flag = []
@@ -73,7 +73,7 @@ def add(id):
         if listi[5] == id:
          vorulisti.append(listi)
 
-
+     time.sleep(2)
      return redirect(url_for("index"))
 
 @app.route("/checkout")
@@ -90,6 +90,7 @@ def dele(ids):
             vorulisti.pop(counter)
             break
         counter = counter + 1
+    time.sleep(2)
     return redirect(url_for("checkout"))
 
 if __name__ == "__main__":
