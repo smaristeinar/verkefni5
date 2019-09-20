@@ -116,6 +116,52 @@ i{background:transparent;}
 
 
 }
+.table{
+  padding-top: 40px;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: auto;
+}
+
+td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.table-mynd{
+  width: 100px;
+  height: 100px;
+}
+
+.del{
+text-align: center;
+color: red;
+font-size: 30px;
+text-decoration: none;
+}
+
+.del-btn{
+  border: none; /* Remove borders */
+  border-radius: 5px;
+  margin-top: 10px;
+  color: red;
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  display: inline-block;
+}
 
 
 

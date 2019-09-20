@@ -10,13 +10,19 @@ def pack_dicta(listi, dicta):
         listi.append(list_flag)
         list_flag = []
 
+def total_price(listi):
+    summa = 0
+    for i in listi:
+        summa = summa + int(i[4])
+    return summa
+
 stor_items = {
 "1":{
 "nafn":"Skófla",
 "uplýsingar":"létt og sterk skófla",
 "verð":"1000kr",
 "mynd":"https://www.pngarts.com/files/3/Shovel-Transparent-Image.png",
-"verð-pure":"500",
+"verð-pure":"1000",
 "id":"1"
 },
 "2":{
@@ -51,7 +57,7 @@ listi_hlutir = []
 
 pack_dicta(listi_hlutir, stor_items)
 
-vörulisti = []
+vorulisti = []
 teljari = 0
 
 app = Flask(__name__)
@@ -59,20 +65,32 @@ app = Flask(__name__)
 hlutir = listi_hlutir
 @app.route("/")
 def index():
-
-    return render_template("index.html", hlutir = hlutir,teljari = len(vörulisti))
+    return render_template("index.html", hlutir = hlutir,teljari = len(vorulisti))
 
 @app.route("/add/<id>")
 def add(id):
      for listi in listi_hlutir:
         if listi[5] == id:
-         vörulisti.append(listi)
+         vorulisti.append(listi)
 
-     print(vörulisti)
+
      return redirect(url_for("index"))
 
+@app.route("/checkout")
+def checkout():
+    vorur = vorulisti
+    total = total_price(vorulisti)
+    return render_template("checkout.html", vorur= vorur, total = total)
 
-
+@app.route("/del/<ids>")
+def dele(ids):
+    counter = 0
+    for lists in vorulisti:
+        if ids == lists[5]:
+            vorulisti.pop(counter)
+            break
+        counter = counter + 1
+    return redirect(url_for("checkout"))
 
 if __name__ == "__main__":
     app.run()

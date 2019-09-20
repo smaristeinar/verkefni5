@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="table">
+
+
+<table>
+  <tr>
+    <th>Vara</th>
+    <th>Upplýsingar</th>
+    <th>Verð</th>
+  </tr>
+  {%for hlutir in vorur%}
+  <tr>
+  <td class="mynd-tb"><img src="{{hlutir[3]}}" class="table-mynd" alt="{{hlutir[0]}}"></td>
+  <td><h1>{{hlutir[0]}}</h1><br>{{hlutir[1]}}</td>
+  <td>{{hlutir[2]}}</td>
+  <td class="del"><a href="/del/{{hlutir[5]}}"><button class="del-btn" type="button" name="button"><i class="far fa-times-circle"></i></button></a></td>
+  </tr>
+  {%endfor%}
+  <tr>
+    <td></td>
+    <td><h1>Total amount: </h1></td>
+    <td><p>{{total}}</p></td>
+  </tr>
+</table>
+</div>
+{% endblock %}
