@@ -1,30 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request,url_for,session,redirect
 import os
-import csv
 
-def opnaSkra(file,listi):
-    try:
-        with open(file, "r") as csv_file:
-            new_file = csv.reader(csv_file, delimiter=';')
-            for lines in new_file:
-                listi.append(listi)
-    except IOError:
-        print("villa komupp þegar það ver reint að lesa skjalið")
-    finally:
-        print("það tókst að lesa skránna!")
-        csv_file.close()
-
-def writeFile(file, listi):
-    try:
-        string = ""
-        with open(file, "w", ) as csv_file:
-            for msg in listi:
-                csv_file.write(msg)
-
-    except IOError:
-        print("villa kom upp við skrift a skalinu")
-    finally:
-        csv_file.close()
 
 def pack_dicta(listi, dicta):
     list_flag = []
@@ -40,28 +16,33 @@ stor_items = {
 "uplýsingar":"létt og sterk skófla",
 "verð":"1000kr",
 "mynd":"https://www.pngarts.com/files/3/Shovel-Transparent-Image.png",
-"verð-pure":"500"
+"verð-pure":"500",
+"id":"1"
 },
 "2":{
 "nafn":"Hrífa",
 "uplýsingar":"Traust hrífa sem svíkur ekki",
 "verð":"500kr",
 "mynd":"http://pluspng.com/img-png/png-of-a-rake-rake-png-475.png",
-"verð-pure":"500"
+"verð-pure":"500",
+"id":"2"
 },
 "3":{
 "nafn":"Hjólbara",
 "uplýsingar":"Góð hjólbara sem tekur allt að 100L",
 "verð":"2000kr",
 "mynd":"https://i1.wp.com/freepngimages.com/wp-content/uploads/2015/05/wheelbarrow.png?resize=900%2C900",
-"verð-pure":"2000"
+"verð-pure":"2000",
+"id":"3"
+
 },
 "4":{
 "nafn":"Strákústur",
 "uplýsingar":"Strákústur með spítu skafti",
 "verð":"900kr",
 "mynd":"http://pngimg.com/uploads/broom/broom_PNG50.png",
-"verð-pure":"900"
+"verð-pure":"900",
+"id":"4"
 }
 
 }
@@ -70,12 +51,25 @@ listi_hlutir = []
 
 pack_dicta(listi_hlutir, stor_items)
 
+vörulisti = []
+teljari = 0
+
 app = Flask(__name__)
 
+hlutir = listi_hlutir
 @app.route("/")
 def index():
-    hlutir = listi_hlutir
-    return render_template("index.html", hlutir = hlutir)
+
+    return render_template("index.html", hlutir = hlutir,teljari = len(vörulisti))
+
+@app.route("/add/<id>")
+def add(id):
+     for listi in listi_hlutir:
+        if listi[5] == id:
+         vörulisti.append(listi)
+
+     print(vörulisti)
+     return redirect(url_for("index"))
 
 
 

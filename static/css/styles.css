@@ -4,6 +4,7 @@ background color:  #f7fafc
 
 font-family: 'Turret Road', cursive; verð
 font-family: 'M PLUS Rounded 1c', sans-serif; titill
+font-family: 'Roboto', sans-serif;
 */
 
 *{
@@ -59,7 +60,7 @@ font-family: 'M PLUS Rounded 1c', sans-serif; titill
   font-family: 'Turret Road', cursive;
 }
 
-.listi_hlutir > button{
+.takki{
   grid-area: button;
   background-color: DodgerBlue; /* Blue background */
   border: none; /* Remove borders */
@@ -79,6 +80,45 @@ i{background:transparent;}
 .listi_hlutir button:hover {
   background-color: RoyalBlue;
 }
+
+.nav{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: DodgerBlue;
+
+
+}
+.nav > h1{
+  padding: 15px;
+  font-size: 40px;
+  background-color: DodgerBlue;
+  font-family: 'Roboto', sans-serif;
+}
+
+.takkar-nav{
+  justify-self:end;
+  background-color: DodgerBlue;
+}
+
+.takkar2{
+
+
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  display: inline-block;
+
+
+}
+
+
+
 
 /*RWD*/
 
@@ -101,7 +141,7 @@ i{background:transparent;}
 
 
 
-@media only screen and (min-width: 1500px){
+@media only screen and (min-width: 1600px){
   .listi_body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

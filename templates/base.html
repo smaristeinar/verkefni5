@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Turret+Road&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5eb76d5b25.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <div class="nav">
+    <h1>Verkfæri</h1>
+    <div class="takkar-nav">
+      <a href="#"><button class="takkar2" type="button" name="button"><i class="fas fa-home"></i></i> Heim</button></a>
+      <a href="#"><button class="takkar2" type="button" name="button"><i class="fas fa-shopping-basket"></i> ({{teljari}})Karfa</button></a>
+    </div>
+  </div>
+  {% block body %}
+  {% endblock %}
+</body>
+</html>
+
+
+<!--     <a href="#"><button class="takkar2" type="button" name="button"><i class="fas fa-home"></i></i> Heim</button></a>
+    <a href="#"><button class="takkar2" type="button" name="button"><i class="fas fa-shopping-basket"></i> Karfa</button></a>
+  -->
