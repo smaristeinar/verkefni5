@@ -1,6 +1,7 @@
-from flask import Flask, render_template,request,url_for,session,redirect
+from flask import Flask, render_template,request,url_for,session,redirect,request
 import os
 import time
+
 
 def pack_dicta(listi, dicta):
     list_flag = []
@@ -10,9 +11,9 @@ def pack_dicta(listi, dicta):
         listi.append(list_flag)
         list_flag = []
 
-def total_price(listi):
+def total_price():
     summa = 0
-    for i in listi:
+    for i in session["karfa"]:
         summa = summa + int(i[4])
     return summa
 
@@ -61,37 +62,80 @@ vorulisti = []
 teljari = 0
 
 app = Flask(__name__)
-
+app.config["SECRET_KEY"]  ="blab"
 hlutir = listi_hlutir
+
+
+
 @app.route("/")
 def index():
-    return render_template("index.html", hlutir = hlutir,teljari = len(vorulisti))
+    if "karfa" not in session:
+        session["karfa"] = []
+    return render_template("index.html", hlutir = hlutir,teljari = len(session["karfa"]))
 
 @app.route("/add/<id>")
 def add(id):
+    place_holder_list = []
+    if "karfa" in session:
+     for items in session["karfa"]:
+         place_holder_list.append(items)
      for listi in listi_hlutir:
         if listi[5] == id:
-         vorulisti.append(listi)
+            place_holder_list.append(listi)
+            session["karfa"] = place_holder_list
+            place_holder_list = []
 
-     time.sleep(2)
-     return redirect(url_for("index"))
+
+
+    return redirect(url_for("index"))
 
 @app.route("/checkout")
 def checkout():
-    vorur = vorulisti
-    total = total_price(vorulisti)
+    vorur = session.get("karfa")
+    total = total_price()
     return render_template("checkout.html", vorur= vorur, total = total)
 
 @app.route("/del/<ids>")
 def dele(ids):
     counter = 0
-    for lists in vorulisti:
+    place_holder_del_list = []
+    for items in session["karfa"]:
+        place_holder_del_list.append(items)
+    for lists in place_holder_del_list:
         if ids == lists[5]:
-            vorulisti.pop(counter)
+            place_holder_del_list.pop(counter)
+            session["karfa"] = place_holder_del_list
+            place_holder_del_list = []
             break
         counter = counter + 1
     time.sleep(2)
     return redirect(url_for("checkout"))
+
+@app.route("/checkoutfinal", methods=["GET","POST"])
+def checkoutfinal():
+    req = request.form
+    if request.method == "POST":
+        nafn = req.get("name")
+        email = req.get("email")
+        number = req.get("phone")
+    total = total_price()
+    return render_template("final.html", nafn = nafn, email = email, number=number, vorur = len(session["karfa"]), total = total)
+
+
+@app.route("/popout")
+def popout():
+    session.pop("karfa", None)
+    return redirect(url_for("index"))
+
+@app.errorhandler(404)
+def error(error):
+    return"""vialla kom upp <a href="/">Heim</a>"""
+    
+
+@app.errorhandler(505)
+def error(error):
+    return"""vialla kom upp <a href="/">Heim</a>"""
+
 
 if __name__ == "__main__":
     app.run()

@@ -163,6 +163,41 @@ text-decoration: none;
   display: inline-block;
 }
 
+.form-div{
+  padding-top:15px;
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+
+}
+
+.form{
+  grid-column-start: 2;
+  display: grid;
+  grid-auto-rows:min-content;
+  margin-left:auto;
+  margin-right: auto;
+  border:3px solid DodgerBlue;
+  border-radius: 3px;
+
+}
+
+.form-feild{
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+
+}
+
+.final_form_table{
+  padding-top: 30px;
+}
+
+.final_takki{
+  display:block;
+  text-align: center;
+}
 
 
 

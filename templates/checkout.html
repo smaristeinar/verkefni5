@@ -30,4 +30,37 @@
   </tr>
 </table>
 </div>
+
+<div class="form-div">
+<form class="form" action="/checkoutfinal" method="POST">
+  <div class="form-feild">
+    <label>Nafn</label>
+      <input name="name" type="text"
+          placeholder="jon jonson" required/>
+  </div>
+  <div class="form-feild">
+    <label>Email</label>
+    <input type="email" name="email"
+    placeholder="example@example.com"
+    required/>
+  </div>
+  <div class="form-feild">
+    <label for="símanúmer">Símanúmer</label>
+    <input type="tel" id="phone" name="phone"
+       pattern="[0-9]{7}"
+       placeholder="1234567"
+       required/>
+  </div>
+  <div class="form-feild">
+    <input type="submit" class="takkar2" name="submit" value="submit">
+  </div>
+
+</form>
+
+
+
+</div>
+
+
+</div>
 {% endblock %}
